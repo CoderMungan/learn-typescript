@@ -1,40 +1,29 @@
-/*
-const reversedText = (text: string) => {
+// Unions
+type User = number | string;
 
-    return text.split('').reverse().join('')
+// Literal Types
+type Name = "TypeScript" | "Django"
+
+interface Proje<N, U>{
+    name: N;
+    user?: U;
 }
 
-console.log(
-    reversedText('Halil')
-); 
-*/
-
-
-interface Product{
-    id: number,
-    name: string,
-    price: number,
-    test: boolean
+let project: Proje<Name, User> = {
+    name : "TypeScript",
+    user : "CoderMungan"
 }
 
+// Array
+let projectArr: Proje<Name, User>[] = [{
+    name: "Django",
+    user: "CoderMungan"
+}]
 
+// Functional
+type Collection = (x: number, y: number) => number;
 
-function getProduct(id: number): Product{
-    return {
-        id,
-        name: 'Urun #' + id,
-        price: 100,
-        test: true
-    }
-}
+const collection: Collection = (x, y) => x + y;
 
+const result = collection(5,10)
 
-const product = getProduct(1)
-
-function showProductInfo(name: string, price: number){
-    return `urun = ${name} fiyat = ${price}`
-}
-
-console.log(
-    showProductInfo(product.name, product.price)
-)
